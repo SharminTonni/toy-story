@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import SocialLogin from "./SocialLogin";
 
 const Signup = () => {
   const { createUser, updateUser } = useContext(AuthContext);
@@ -97,6 +98,7 @@ const Signup = () => {
                 Please Login
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

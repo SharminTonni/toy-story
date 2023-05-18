@@ -6,7 +6,12 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navigation = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logout()
+      .then()
+      .catch((err) => console.log(err));
+  };
   const navItems = (
     <>
       <li tabIndex={0}>
@@ -14,23 +19,29 @@ const Navigation = () => {
           Home
         </ActiveLink>
       </li>
+
       <li>
         <ActiveLink to="/blog">Blog</ActiveLink>
       </li>
       {user ? (
-        <li>
-          <button className="text-green-600 active:bg-green-600 text-lg font-bold">
-            LogOut
-          </button>
-        </li>
+        <>
+          <li>
+            <button
+              onClick={handleLogOut}
+              className="text-green-600 active:bg-green-600 text-lg font-bold"
+            >
+              LogOut
+            </button>
+          </li>
+          <li>
+            <ActiveLink to="/addtoy">Add Toy</ActiveLink>
+          </li>
+        </>
       ) : (
         <li>
           <ActiveLink to="/login">Login</ActiveLink>
         </li>
       )}
-      <li>
-        <ActiveLink to="/addtoy">Add Toy</ActiveLink>
-      </li>
     </>
   );
   return (
