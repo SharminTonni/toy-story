@@ -22,7 +22,7 @@ const Gallery = () => {
         </i>
       </p>
       <p className="text-lg mb-6">
-        <i>So give them back their Play-time</i>
+        <i> Let's give them back Their Play-Time</i>
       </p>
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
         {pics.map((pic) => (

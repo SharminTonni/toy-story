@@ -11,13 +11,13 @@ const Banner = () => {
       <p className="text-lg mt-5 font-semibold">
         Make Their Play Time Blast With Our Finest Toy Cars and Vehicles
       </p>
-      <div className="lg:mt-64 justify-center items-center gap-5  text-center">
-        <p className="text-2xl  text-white font-semibold">
+      <div className="lg:mt-64   text-center">
+        <p className="text-2xl mb-3 text-white font-semibold">
           We Offer A Premium Service For Online Shopping
         </p>
-        {/* <button className="btn text-green-600 border-none  hover:bg-green-200 normal-case bg-white font-bold text-xl">
+        <button className="btn text-green-600 border-none  hover:bg-green-200 normal-case bg-white font-bold text-xl">
           Purchase
-        </button> */}
+        </button>
       </div>
     </div>
   );
