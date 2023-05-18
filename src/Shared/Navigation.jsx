@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import ActiveLink from "./ActiveLink";
 import Lottie from "lottie-react";
 import car from "../assets/cartoy.json";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navigation = () => {
+  const { user } = useContext(AuthContext);
   const navItems = (
     <>
       <li tabIndex={0}>
@@ -14,11 +17,19 @@ const Navigation = () => {
       <li>
         <ActiveLink to="/blog">Blog</ActiveLink>
       </li>
+      {user ? (
+        <li>
+          <button className="text-green-600 active:bg-green-600 text-lg font-bold">
+            LogOut
+          </button>
+        </li>
+      ) : (
+        <li>
+          <ActiveLink to="/login">Login</ActiveLink>
+        </li>
+      )}
       <li>
-        <ActiveLink to="/login">Login</ActiveLink>
-      </li>
-      <li>
-        <ActiveLink to="/signup">Sign up</ActiveLink>
+        <ActiveLink to="/addtoy">Add Toy</ActiveLink>
       </li>
     </>
   );
@@ -60,11 +71,6 @@ const Navigation = () => {
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Toy_Story_logo.svg/1280px-Toy_Story_logo.svg.png"
               alt="website Logo"
             />
-            {/* <img
-              className="w-48 h-24"
-              src="https://www.shutterstock.com/image-vector/eco-green-car-logo-design-260nw-2286411257.jpg"
-              alt=""
-            /> */}
           </Link>
         </div>
       </div>
@@ -72,8 +78,19 @@ const Navigation = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        {/* <a className="btn">Get started</a> */}
-        <p>User pic</p>
+        {user ? (
+          <>
+            <span className="tooltip" data-tip={user.displayName}>
+              <img
+                className="w-16 h-16  rounded-full"
+                src={user.photoURL}
+                alt="website Logo"
+              />
+            </span>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
