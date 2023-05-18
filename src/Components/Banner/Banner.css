@@ -1,0 +1,8 @@
+.bg {
+  background-image: linear-gradient(rgba(145, 247, 97, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://thumbs.dreamstime.com/z/kids-play-toy-cars-children-playing-car-toys-white-room-little-boy-truck-vehicle-transportation-game-kid-parking-187698426.jpg");
+  height: 100vh;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
