@@ -32,6 +32,9 @@ const Category = () => {
   };
   return (
     <div className="text-center mt-12" id="main">
+      <h1 className="text-center text-4xl my-8 font-bold text-green-600">
+        Find Our Collections Here
+      </h1>
       <div className="flex gap-5 justify-center items-center">
         {tabs.map((tab) => (
           <div key={tab.id}>

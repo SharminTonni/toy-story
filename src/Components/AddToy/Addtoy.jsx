@@ -44,7 +44,12 @@ const Addtoy = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          Swal.fire("Toy has been Successfully Added");
+          Swal.fire({
+            title: "Success!",
+            text: "Toy Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
         }
         form.reset();
       });
@@ -127,8 +132,10 @@ const Addtoy = () => {
                       onChange={(e) => setSelected(e.target.value)}
                       required
                       id=""
-                      defaultValue={selected}
+                      //   defaultValue={selected}
+                      //   value="category"
                     >
+                      <option>Category</option>
                       <option value="police">Police</option>
                       <option value="truck">Truck</option>
                       <option value="luxury">Luxury</option>
@@ -165,6 +172,8 @@ const Addtoy = () => {
                       <span className="label-text">Ratings</span>
                     </label>
                     <input
+                      max="5"
+                      min="0"
                       type="number"
                       name="rating"
                       placeholder="Ratings"
@@ -189,11 +198,12 @@ const Addtoy = () => {
                     ></textarea>
                   </div>
                 </div>
-                <div className="form-control mt-6">
-                  <button className="btn bg-green-600 hover:bg-green-700">
-                    Add Toy
-                  </button>
-                </div>
+                <div className="form-control mt-6"></div>
+                <input
+                  className="btn bg-green-600 normal-case w-full hover:bg-green-700"
+                  type="submit"
+                  value="Add Toy"
+                />
               </form>
             </div>
           </div>
