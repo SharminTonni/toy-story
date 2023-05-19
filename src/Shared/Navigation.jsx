@@ -19,6 +19,9 @@ const Navigation = () => {
           Home
         </ActiveLink>
       </li>
+      <li>
+        <ActiveLink to="/shop">Shop</ActiveLink>
+      </li>
 
       <li>
         <ActiveLink to="/blog">Blog</ActiveLink>
@@ -35,6 +38,9 @@ const Navigation = () => {
           </li>
           <li>
             <ActiveLink to="/addtoy">Add Toy</ActiveLink>
+          </li>
+          <li>
+            <ActiveLink to="/mytoy">My Toys</ActiveLink>
           </li>
         </>
       ) : (
@@ -91,11 +97,11 @@ const Navigation = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <span className="tooltip" data-tip={user.displayName}>
+            <span className="tooltip" data-tip={user?.displayName}>
               <img
                 className="w-16 h-16  rounded-full"
-                src={user.photoURL}
-                alt="website Logo"
+                src={user?.photoURL}
+                alt="user photo"
               />
             </span>
           </>

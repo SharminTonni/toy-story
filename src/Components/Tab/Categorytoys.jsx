@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { Rating } from "@smastrom/react-rating";
 
+import "@smastrom/react-rating/style.css";
 const Categorytoys = ({ toy }) => {
   const { title, imgURL, price, rating, _id } = toy || {};
   return (
@@ -10,10 +12,17 @@ const Categorytoys = ({ toy }) => {
       <div className="card-body items-center text-center">
         <h2 className="card-title">{title}</h2>
         <p>Price: ${price}</p>
-        <p>Rating: {rating} stars</p>
+        <p className="flex items-center">
+          <Rating
+            value={rating}
+            style={{ maxWidth: "100px" }}
+            readOnly
+          ></Rating>
+          <span>{rating}</span>
+        </p>
         <div className="card-actions">
           <Link to={`/${_id}`}>
-            <button className="btn btn-primary">Details</button>
+            <button className="btn btn-primary normal-case">Details</button>
           </Link>
         </div>
       </div>
