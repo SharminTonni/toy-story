@@ -1,10 +1,12 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../Title/useTitle";
 
 const Update = () => {
   const toy = useLoaderData();
   const navigate = useNavigate();
+  useTitle("Update Toy");
   const {
     description,
 
@@ -15,7 +17,7 @@ const Update = () => {
   } = toy || {};
   const handleSubmit = (e) => {
     e.preventDefault();
-    const price = e.target.price.value;
+    const price = parseFloat(e.target.price.value);
     const quantity = e.target.quantity.value;
     const description = e.target.detail.value;
     const updatedToy = {

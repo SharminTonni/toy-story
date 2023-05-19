@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/AuthProvider";
 import "./Addtoy.css";
 import Swal from "sweetalert2";
+import useTitle from "../../Title/useTitle";
 
 const Addtoy = () => {
   const { user } = useContext(AuthContext);
   const [selected, setSelected] = useState("");
+  useTitle("Addtoy");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const Addtoy = () => {
     const sellerEmail = user?.email;
     const category = selected;
     const quantity = form.quantity.value;
-    const price = form.price.value;
+    const price = parseFloat(form.price.value);
     const rating = form.rating.value;
     const description = form.detail.value;
 
@@ -160,7 +162,7 @@ const Addtoy = () => {
                       <span className="label-text">Price</span>
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       name="price"
                       placeholder="$Price"
                       className="input input-bordered"
@@ -174,7 +176,7 @@ const Addtoy = () => {
                     <input
                       max="5"
                       min="0"
-                      type="number"
+                      type="text"
                       name="rating"
                       placeholder="Ratings"
                       className="input input-bordered"

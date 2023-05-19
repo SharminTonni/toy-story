@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../../Title/useTitle";
 
 const Shop = () => {
   const loadedToys = useLoaderData();
   const [toys, setToys] = useState(loadedToys);
   const [searchtext, setSearchText] = useState("");
-  console.log(toys);
+  //   console.log(toys);
+
+  useTitle("Shop");
 
   const handleSearch = () => {
     fetch(`http://localhost:5000/toysByTitle/${searchtext}`)
@@ -59,7 +62,12 @@ const Shop = () => {
             {toys.map((toy, index) => (
               <tr key={toy._id}>
                 <th>{index + 1}</th>
-                <td>{toy.seller?.name || toy.sellerName}</td>
+                <td>
+                  <p>
+                    {toy.sellerName} <br />
+                    <small>{toy.sellerEmail}</small>
+                  </p>
+                </td>
                 <td>{toy.title}</td>
                 <td>{toy.category}</td>
                 <td>${toy.price}</td>

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import useTitle from "../../Title/useTitle";
 
 const Errorpage = () => {
+  useTitle("ErrorPage");
   return (
     <div className="text-center my-6">
       <Link to="/">

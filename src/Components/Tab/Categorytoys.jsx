@@ -22,7 +22,9 @@ const Categorytoys = ({ toy }) => {
         </p>
         <div className="card-actions">
           <Link to={`/${_id}`}>
-            <button className="btn btn-primary normal-case">Details</button>
+            <button className="btn bg-green-600 hover:bg-green-700 normal-case">
+              Details
+            </button>
           </Link>
         </div>
       </div>

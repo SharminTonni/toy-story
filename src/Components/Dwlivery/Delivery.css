@@ -1,0 +1,8 @@
+.delivery {
+  background-image: linear-gradient(rgba(97, 247, 232, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://thumbs.dreamstime.com/z/kid-playing-toy-car-cute-little-boy-his-colorful-plastic-31123605.jpg");
+  height: 100vh;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}

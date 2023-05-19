@@ -51,7 +51,7 @@ const Navigation = () => {
     </>
   );
   return (
-    <div className="navbar bg-green-100">
+    <div className="navbar bg-green-100 border-b-8 border-green-600 p-4">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
