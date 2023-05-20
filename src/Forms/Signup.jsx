@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
 import useTitle from "../Title/useTitle";
@@ -7,6 +7,7 @@ import useTitle from "../Title/useTitle";
 const Signup = () => {
   useTitle("Sign up");
   const { createUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -24,6 +25,7 @@ const Signup = () => {
           photoURL: photo,
         });
         form.reset();
+        navigate("/");
       })
       .then()
       .catch((error) => {

@@ -1,15 +1,16 @@
 import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
+
 import { AuthContext } from "../../Provider/AuthProvider";
 import "./Addtoy.css";
 import Swal from "sweetalert2";
 import useTitle from "../../Title/useTitle";
+import { useNavigate } from "react-router-dom";
 
 const Addtoy = () => {
   const { user } = useContext(AuthContext);
   const [selected, setSelected] = useState("");
   useTitle("Addtoy");
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,7 +37,7 @@ const Addtoy = () => {
       description,
     };
     console.log(toy);
-    fetch("http://localhost:5000/toys", {
+    fetch("https://toy-story-server.vercel.app/toys", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,6 +54,7 @@ const Addtoy = () => {
             confirmButtonText: "Cool",
           });
         }
+        navigate("/shop");
         form.reset();
       });
   };

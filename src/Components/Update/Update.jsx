@@ -26,7 +26,7 @@ const Update = () => {
       description,
     };
     console.log(updatedToy);
-    fetch(`http://localhost:5000/update/${_id}`, {
+    fetch(`https://toy-story-server.vercel.app/update/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,6 @@ const Update = () => {
                       name="quantity"
                       placeholder="Available Quantity"
                       className="input input-bordered"
-                      required
                     />
                   </div>
                   <div className="form-control">
@@ -84,7 +83,6 @@ const Update = () => {
                       name="price"
                       placeholder="$Price"
                       className="input input-bordered"
-                      required
                     />
                   </div>
                 </div>
@@ -102,7 +100,6 @@ const Update = () => {
                       id=""
                       cols="10"
                       rows="5"
-                      required
                     ></textarea>
                   </div>
                 </div>

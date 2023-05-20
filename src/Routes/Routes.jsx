@@ -51,12 +51,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/singletoy/${params.id}`),
+          fetch(`https://toy-story-server.vercel.app/singletoy/${params.id}`),
       },
       {
         path: "shop",
         element: <Shop></Shop>,
-        loader: () => fetch("http://localhost:5000/mytoys"),
+        loader: () => fetch("https://toy-story-server.vercel.app/mytoys"),
       },
       {
         path: "mytoy",
@@ -69,7 +69,8 @@ const router = createBrowserRouter([
       {
         path: "update/:id",
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://toy-story-server.vercel.app/${params.id}`),
       },
     ],
   },

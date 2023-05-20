@@ -14,7 +14,7 @@ const Shop = () => {
   useTitle("Shop");
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/toysByTitle/${searchtext}`)
+    fetch(`https://toy-story-server.vercel.app/toysByTitle/${searchtext}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   };
@@ -31,7 +31,7 @@ const Shop = () => {
   };
 
   //   const handleDelete = (id) => {
-  //     fetch(`http://localhost:5000/toys/${id}`, {
+  //     fetch(`https://toy-story-server.vercel.app/toys/${id}`, {
   //       method: "DELETE",
   //     })
   //       .then((res) => res.json())

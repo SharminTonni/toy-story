@@ -13,7 +13,9 @@ const MyToy = () => {
   const tabs = [{ title: "ascending" }, { title: "descending" }];
 
   useEffect(() => {
-    fetch(`http://localhost:5000/all/${currentTab}?email=${user?.email}`)
+    fetch(
+      `https://toy-story-server.vercel.app/all/${currentTab}?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyToys(data));
   }, [user, currentTab]);
@@ -34,7 +36,7 @@ const MyToy = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://toy-story-server.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -130,7 +132,7 @@ const MyToy = () => {
                 <td>{myToy.category}</td>
                 <td>{myToy.rating}</td>
                 <th>
-                  <Link to={`/${myToy._id}`}>
+                  <Link to={`/singletoy/${myToy._id}`}>
                     <button className="btn bg-green-600 hover:bg-green-700 btn-sm normal-case">
                       Details
                     </button>

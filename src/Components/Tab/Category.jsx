@@ -22,7 +22,7 @@ const Category = () => {
   ];
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys/${currentTab}`)
+    fetch(`https://toy-story-server.vercel.app/mytoys/${currentTab}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [currentTab]);
