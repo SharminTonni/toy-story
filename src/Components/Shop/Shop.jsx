@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import useTitle from "../../Title/useTitle";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Shop = () => {
   const loadedToys = useLoaderData();
+  const { user } = useContext(AuthContext);
   const [toys, setToys] = useState(loadedToys);
   const [searchtext, setSearchText] = useState("");
   //   console.log(toys);
@@ -14,6 +17,17 @@ const Shop = () => {
     fetch(`http://localhost:5000/toysByTitle/${searchtext}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
+  };
+
+  const handleDetails = () => {
+    if (!user) {
+      Swal.fire({
+        title: "Login!",
+        text: "To see Details of This Toy you have to login first",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
   };
 
   //   const handleDelete = (id) => {
@@ -73,8 +87,11 @@ const Shop = () => {
                 <td>${toy.price}</td>
                 <td>{toy.quantity}</td>
                 <th>
-                  <Link to={`/${toy._id}`}>
-                    <button className="btn bg-green-500 hover:bg-green-700 btn-sm normal-case">
+                  <Link to={`/singletoy/${toy._id}`}>
+                    <button
+                      onClick={handleDetails}
+                      className="btn bg-green-500 hover:bg-green-700 btn-sm normal-case"
+                    >
                       Details
                     </button>
                   </Link>

@@ -2,7 +2,7 @@ import Navigation from "./Navigation";
 
 const Header = () => {
   return (
-    <div>
+    <div className="">
       <Navigation></Navigation>
     </div>
   );

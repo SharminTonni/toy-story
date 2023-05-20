@@ -14,8 +14,8 @@ const Navigation = () => {
   };
   const navItems = (
     <>
-      <li tabIndex={0}>
-        <ActiveLink to="/" className="justify-between">
+      <li>
+        <ActiveLink to="/" className="">
           Home
         </ActiveLink>
       </li>
@@ -94,7 +94,7 @@ const Navigation = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="lg:navbar-end">
         {user ? (
           <>
             <span className="tooltip" data-tip={user?.displayName}>

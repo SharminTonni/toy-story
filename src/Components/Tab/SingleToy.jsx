@@ -3,9 +3,13 @@ import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
 import useTitle from "../../Title/useTitle";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const SingleToy = () => {
   const toy = useLoaderData();
+  const { user } = useContext(AuthContext);
+
   useTitle("Details");
   //   console.log(toy);
   const {

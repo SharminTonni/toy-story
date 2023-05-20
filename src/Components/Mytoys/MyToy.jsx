@@ -90,7 +90,7 @@ const MyToy = () => {
                   <label>
                     <button
                       onClick={() => handleDelete(myToy._id)}
-                      className="btn btn-circle"
+                      className="btn btn-circle bg-red-500 hover:bg-red-700"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -131,14 +131,14 @@ const MyToy = () => {
                 <td>{myToy.rating}</td>
                 <th>
                   <Link to={`/${myToy._id}`}>
-                    <button className="btn btn-ghost btn-xs normal-case">
+                    <button className="btn bg-green-600 hover:bg-green-700 btn-sm normal-case">
                       Details
                     </button>
                   </Link>
                 </th>
                 <th>
                   <Link to={`/update/${myToy._id}`}>
-                    <button className="btn btn-ghost btn-xs normal-case">
+                    <button className="btn bg-blue-600 hover:bg-blue-800 btn-sm  normal-case">
                       Update
                     </button>
                   </Link>
