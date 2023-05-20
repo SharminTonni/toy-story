@@ -7,13 +7,20 @@ import useTitle from "../../Title/useTitle";
 const MyToy = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [currentTab, setCurrentTabs] = useState("nothing");
   useTitle("My Toys");
 
+  const tabs = [{ title: "ascending" }, { title: "descending" }];
+
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoys/${user?.email}`)
+    fetch(`http://localhost:5000/all/${currentTab}?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, [user]);
+  }, [user, currentTab]);
+
+  const handleTab = (title) => {
+    setCurrentTabs(title);
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -44,6 +51,19 @@ const MyToy = () => {
 
   return (
     <div className="my-12">
+      <div className="flex gap-5 justify-center items-center mb-6">
+        {tabs.map((tab) => (
+          <div key={tab.title}>
+            <button
+              className="btn btn-success"
+              disabled={currentTab === tab.title}
+              onClick={() => handleTab(tab.title)}
+            >
+              {tab.title} By price
+            </button>
+          </div>
+        ))}
+      </div>
       <div className="overflow-x-auto w-full ">
         <table className="table w-full">
           <thead>

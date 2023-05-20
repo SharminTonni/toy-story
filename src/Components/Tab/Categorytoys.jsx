@@ -5,7 +5,7 @@ import "@smastrom/react-rating/style.css";
 const Categorytoys = ({ toy }) => {
   const { title, imgURL, price, rating, _id } = toy || {};
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl shadow-green-200 mb-4">
       <figure className="px-10 pt-10">
         <img src={imgURL} alt="Shoes" className="rounded-xl h-48" />
       </figure>
