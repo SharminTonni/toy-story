@@ -10,9 +10,9 @@ const Gallery = () => {
     fetch("gallery.json")
       .then((res) => res.json())
       .then((data) => setPics(data));
-  }, []); 
+  }, []);
   return (
-    <div className=" font-serif  text-center">
+    <div className=" font-serif my-12  text-center">
       <p className="text-5xl font-bold text-green-600 my-6">
         <i>Play Stories</i>
       </p>
